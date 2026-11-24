@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grace & Truth Ministry</title>
+<meta name="description" content="Grace & Truth Ministry — practical tools for believers to share the gospel, offer biblical counsel, and steward what God has given.">
+<link rel="icon" type="image/png" href="https://bunnell1.github.io/grace-and-truth-witness/icon-192.png">
+<style>
+:root {
+  --bg: #F7F3EC;
+  --surface: #FFFcf8;
+  --text: #1C1C1C;
+  --muted: #6B6560;
+  --accent: #1F4D3A;
+  --accent-deep: #16382B;
+  --gold: #B08D57;
+  --border: #E4DDD2;
+  --shadow: 0 8px 24px rgba(31, 77, 58, 0.06);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+.wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+  text-align: center;
+}
+.logo {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 1.2rem;
+  display: block;
+}
+h1 {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 500;
+  color: var(--accent);
+  font-size: 2.4rem;
+  margin: 0.2rem 0 0.4rem;
+}
+.tagline {
+  color: var(--muted);
+  font-size: 1.15rem;
+  max-width: 32rem;
+  margin: 0 auto 2.4rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.1rem;
+  margin-top: 0.5rem;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.6rem 1.3rem;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+  display: block;
+}
+.card:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.card h2 {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+}
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.card .domain {
+  display: block;
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--gold);
+}
+footer {
+  margin-top: 3.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+footer a { color: var(--accent); text-decoration: none; }
+@media (max-width: 600px) {
+  h1 { font-size: 1.9rem; }
+  .wrap { padding: 2rem 1rem 3rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img class="logo" src="https://bunnell1.github.io/grace-and-truth-witness/logo.png" alt="Grace & Truth">
+  <h1>Grace & Truth Ministry</h1>
+  <p class="tagline">Practical tools to help believers share Christ, offer biblical counsel, and steward what God has given.</p>
+
+  <div class="grid">
+    <a class="card" href="https://graceandtruthcounsel.com" target="_blank" rel="noopener">
+      <h2>Grace & Truth Counsel</h2>
+      <p>A preparation aid for biblical counseling. Scripture, principles, and practical tools for sessions.</p>
+      <span class="domain">graceandtruthcounsel.com</span>
+    </a>
+
+    <a class="card" href="https://witness.graceandtruthministry.com" target="_blank" rel="noopener">
+      <h2>Grace & Truth Witness</h2>
+      <p>Help for sharing the gospel in ordinary conversations. Situations, Scripture, and sample responses.</p>
+      <span class="domain">witness.graceandtruthministry.com</span>
+    </a>
+
+    <a class="card" href="https://steward.graceandtruthministry.com" target="_blank" rel="noopener">
+      <h2>Faithful Household</h2>
+      <p>Tools for biblical stewardship of money, family, and daily life under Christ.</p>
+      <span class="domain">steward.graceandtruthministry.com</span>
+    </a>
+  </div>
+
+  <footer>
+    <p>© 2026 Grace & Truth Ministry</p>
+  </footer>
+</div>
+</body>
+</html>
