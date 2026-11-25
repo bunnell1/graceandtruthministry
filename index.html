@@ -18,6 +18,17 @@
   --border: #E4DDD2;
   --shadow: 0 8px 24px rgba(31, 77, 58, 0.06);
 }
+html[data-theme="dark"] {
+  --bg: #141816;
+  --surface: #1E2420;
+  --text: #F3EFE7;
+  --muted: #B7AFA4;
+  --accent: #D7C4A3;
+  --accent-deep: #E8D9BE;
+  --gold: #D4B483;
+  --border: #33403A;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -39,6 +50,7 @@ body {
   height: auto;
   margin: 0 auto 1.2rem;
   display: block;
+  border-radius: 28px;
 }
 h1 {
   font-family: "Source Serif 4", Georgia, serif;
@@ -99,6 +111,23 @@ footer {
   color: var(--muted);
 }
 footer a { color: var(--accent); text-decoration: none; margin: 0 0.4rem; }
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  border-radius: 999px;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.theme-toggle:hover { border-color: var(--gold); }
+.theme-toggle svg { width: 20px; height: 20px; }
 @media (max-width: 600px) {
   h1 { font-size: 1.9rem; }
   .wrap { padding: 2rem 1rem 3rem; }
@@ -106,6 +135,7 @@ footer a { color: var(--accent); text-decoration: none; margin: 0 0.4rem; }
 </style>
 </head>
 <body>
+<button id="theme-toggle" class="theme-toggle" title="Toggle dark mode"><svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg></button>
 <div class="wrap">
   <img class="logo" src="logo.png" alt="Grace & Truth Ministry">
   <h1>Grace & Truth Ministry</h1>
@@ -139,5 +169,33 @@ footer a { color: var(--accent); text-decoration: none; margin: 0 0.4rem; }
     <p>© 2026 Grace & Truth Ministry</p>
   </footer>
 </div>
+<script>
+(function () {
+  function icon() {
+    var el = document.getElementById('theme-icon');
+    if (!el) return;
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    el.innerHTML = dark
+      ? '<circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/>'
+      : '<path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/>';
+  }
+  function bind() {
+    icon();
+    var btn = document.getElementById('theme-toggle');
+    if (!btn || btn.dataset.bound) return;
+    btn.dataset.bound = '1';
+    btn.addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      icon();
+    });
+  }
+  var saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+  else bind();
+})();
+</script>
 </body>
 </html>
